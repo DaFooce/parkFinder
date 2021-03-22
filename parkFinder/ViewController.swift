@@ -30,7 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     currentLocation = locations[0]
     }
     @IBAction func whenZoomButtonPressed(_ sender: UIBarButtonItem) {
-        let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        let coordinateSpan = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
         let center = currentLocation.coordinate
         let region = MKCoordinateRegion(center: center, span: coordinateSpan)
         mapView.setRegion(region, animated: true)
@@ -38,7 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBAction func whenSearchButtonPressed(_ sender: UIBarButtonItem) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "parks"
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let span = MKCoordinateSpan(latitudeDelta: 0.06, longitudeDelta: 0.06)
         request.region = MKCoordinateRegion(center: currentLocation.coordinate, span: span)
         let search = MKLocalSearch(request: request)
         search.start {(response, error) in
